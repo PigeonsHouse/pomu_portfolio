@@ -1,0 +1,74 @@
+{
+  "topImageUrl": "/topimage.jpg",
+  "profile": {
+    "name": "ふるぽむ",
+    "icon": "/topimage.jpg",
+    "description": "覗いてくれてありがとうございます。\n絵を描いたり、焼き物を作ったりしています。\n心の癒やしになるものを目指して描いてます。\nよろしくお願いいたします。",
+    "properties": {
+      "birthday": "2002/05/08",
+      "hobby": "イラスト、展示を見る",
+      "favorite": "納豆"
+    }
+  },
+  "pickup": ["ぼくたちの声を届けるのだ！！！"],
+  "originalArt": [
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    }
+  ],
+  "fanArt": [
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    }
+  ],
+  "porcelain": [
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    }
+  ],
+  "others": [
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "/topimage.jpg",
+      "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    }
+  ],
+  "contact": {
+    "instagram": "ai._imaginary",
+    "x": "furu__1"
+  }
+}
