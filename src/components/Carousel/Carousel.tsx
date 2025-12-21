@@ -75,6 +75,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       <Screen
         onTouchStart={(e) => {
           setStartX(e.touches[0].pageX);
+          setEndX(e.touches[0].pageX);
         }}
         onTouchMove={(e) => {
           setEndX(e.changedTouches[0].pageX);
@@ -103,8 +104,10 @@ export const Carousel: React.FC<CarouselProps> = ({
                 isCenter={i === currentItemIndex + 2}
                 isTransition={isTransition}
                 onClick={() => {
-                  setIsTransition(true);
-                  setCurrentItemIndex(i - 2);
+                  if (currentItemIndex !== i - 2) {
+                    setIsTransition(true);
+                    setCurrentItemIndex(i - 2);
+                  }
                   data.onClick();
                 }}
               />
@@ -147,6 +150,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                   : `rgb(from ${Color.base} r g b / 0.5)`,
             }}
             onClick={() => {
+              if (currentItemIndex === idx) return;
               setIsTransition(true);
               setCurrentItemIndex(idx);
             }}
