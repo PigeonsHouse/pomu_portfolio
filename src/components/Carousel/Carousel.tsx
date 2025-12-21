@@ -19,6 +19,7 @@ type CarouselProps = {
 };
 
 const COPY_COUNT = 2;
+const minimumDistance = 10;
 
 export const Carousel: React.FC<CarouselProps> = ({
   className,
@@ -26,6 +27,11 @@ export const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const [isTransition, setIsTransition] = useState(false);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
+
+  // スワイプ開始時の座標
+  const [startX, setStartX] = useState(0);
+  // スワイプ終了時の座標
+  const [endX, setEndX] = useState(0);
 
   // カルーセルの表示用データ
   const itemList = useMemo(() => {
@@ -66,7 +72,24 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   return (
     <Container className={className}>
-      <Screen>
+      <Screen
+        onTouchStart={(e) => {
+          setStartX(e.touches[0].pageX);
+        }}
+        onTouchMove={(e) => {
+          setEndX(e.changedTouches[0].pageX);
+        }}
+        onTouchEnd={() => {
+          const distanceX = endX - startX;
+          if (Math.abs(distanceX) > minimumDistance) {
+            if (distanceX > 0) {
+              handlePrev();
+            } else {
+              handleNext();
+            }
+          }
+        }}
+      >
         <ItemListContainer
           currentItemIndex={currentItemIndex}
           isTransition={isTransition}
@@ -115,6 +138,7 @@ export const Carousel: React.FC<CarouselProps> = ({
         </button>
         {[...Array(carouselItems.length)].map((_, idx) => (
           <Circle
+            key={idx}
             fontSize="small"
             style={{
               color:
