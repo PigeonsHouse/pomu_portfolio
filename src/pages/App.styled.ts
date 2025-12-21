@@ -17,19 +17,20 @@ export const SpContainer = styled.div`
   flex-direction: column;
 `;
 
-export const Signboard = styled.div<{ open: boolean }>`
+export const Signboard = styled.div<{ isMenuOpen: boolean }>`
   position: absolute;
   top: 24px;
   right: 16px;
   width: 80px;
   height: 64px;
-  background-color: ${(props) => (props.open ? Color.background : Color.base)};
+  background-color: ${(props) =>
+    props.isMenuOpen ? Color.background : Color.base};
   z-index: 1;
   border-radius: 4px;
   box-shadow: ${Shadow};
   font-family: ${FontFamily.Heading};
   font-size: 20px;
-  color: ${(props) => (props.open ? "inherit" : "white")};
+  color: ${(props) => (props.isMenuOpen ? "inherit" : "white")};
   display: flex;
   justify-content: center;
   align-items: center;

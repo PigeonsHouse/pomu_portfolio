@@ -1,8 +1,8 @@
 {
-  "topImageUrl": "/topimage.jpg",
+  "topImageUrl": "/work_1.jpg",
   "profile": {
     "name": "ふるぽむ",
-    "icon": "/topimage.jpg",
+    "icon": "/work_1.jpg",
     "description": "覗いてくれてありがとうございます。\n絵を描いたり、焼き物を作ったりしています。\n心の癒やしになるものを目指して描いてます。\nよろしくお願いいたします。",
     "properties": {
       "birthday": "2002/05/08",
@@ -10,58 +10,76 @@
       "favorite": "納豆"
     }
   },
-  "pickup": ["ぼくたちの声を届けるのだ！！！"],
+  "pickup": [
+    "ぼくたちの声を届けるのだ！！！",
+    "一緒にどう？",
+    "test1",
+    "test2",
+    "test3"
+  ],
   "originalArt": [
     {
-      "imageUrl": "/topimage.jpg",
+      "imageUrl": "/work_3.png",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/topimage.jpg",
+      "imageUrl": "/work_3.png",
       "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "https://pigeons.house/avatar.png",
+      "title": "test1",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     }
   ],
   "fanArt": [
     {
-      "imageUrl": "/topimage.jpg",
-      "title": "一緒にどう？",
+      "imageUrl": "/work_2.png",
+      "title": "ぼくたちの声を届けるのだ！！！",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/topimage.jpg",
-      "title": "一緒にどう？",
+      "imageUrl": "/work_2.png",
+      "title": "ぼくたちの声を届けるのだ！！！",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "https://pigeons.house/web-piano.png",
+      "title": "test2",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     }
   ],
   "porcelain": [
     {
-      "imageUrl": "/topimage.jpg",
+      "imageUrl": "/work_1.jpg",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/topimage.jpg",
+      "imageUrl": "/work_1.jpg",
       "title": "一緒にどう？",
+      "description": "hogehoge",
+      "creationTerm": "2025年11月～12月"
+    },
+    {
+      "imageUrl": "https://pigeons.house/nessy.png",
+      "title": "test3",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     }
   ],
   "others": [
     {
-      "imageUrl": "/topimage.jpg",
-      "title": "一緒にどう？",
-      "description": "hogehoge",
-      "creationTerm": "2025年11月～12月"
-    },
-    {
-      "imageUrl": "/topimage.jpg",
+      "imageUrl": "/work_1.jpg",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
