@@ -1,3 +1,4 @@
+import { css } from "@emotion/css";
 import styled from "@emotion/styled";
 import { Color } from "../../definitions";
 
@@ -47,4 +48,30 @@ export const Item = styled.img<{ isCenter: boolean; isTransition: boolean }>`
   transform: translate(-50%, -50%);
   ${(props) =>
     props.isTransition ? "transition: width 0.8s,height 0.8s;" : undefined}
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const ArrowButton = styled.button`
+  border: 0;
+  padding: 0;
+  background: none;
+  color: ${Color.base};
+  cursor: pointer;
+  & svg {
+    vertical-align: middle;
+  }
+`;
+
+export const HorizontalFlipStyle = css`
+  transform: scaleX(-1);
+`;
+
+export const DotStyle = (isSelect: boolean) => css`
+  color: ${isSelect ? Color.base : `rgb(from ${Color.base} r g b / 0.5)`};
 `;

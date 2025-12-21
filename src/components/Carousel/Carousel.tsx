@@ -1,8 +1,12 @@
-import { useCallback, useMemo, useState } from "react";
-import { Circle, PlayArrow } from "@mui/icons-material";
-import { Color } from "../../definitions";
+import React, { useCallback, useMemo, useState } from "react";
+import Circle from "@mui/icons-material/Circle";
+import PlayArrow from "@mui/icons-material/PlayArrow";
 import {
+  ArrowButton,
+  ButtonsContainer,
   Container,
+  DotStyle,
+  HorizontalFlipStyle,
   Item,
   ItemContainer,
   ItemListContainer,
@@ -19,7 +23,7 @@ type CarouselProps = {
 };
 
 const COPY_COUNT = 2;
-const minimumDistance = 10;
+const MINIMUM_DISTANCE = 10;
 
 export const Carousel: React.FC<CarouselProps> = ({
   className,
@@ -52,6 +56,10 @@ export const Carousel: React.FC<CarouselProps> = ({
     return ((currentItemIndex + itemCount) % itemCount) + 1;
   }, [currentItemIndex]);
 
+  const isCenterIndex = useCallback(
+    (i: number) => currentItemIndex === i - 2,
+    [currentItemIndex]
+  );
   const handlePrev = useCallback(() => {
     if (!isTransition) {
       setIsTransition(true);
@@ -69,27 +77,44 @@ export const Carousel: React.FC<CarouselProps> = ({
     setIsTransition(false);
     setCurrentItemIndex((n) => (itemCount + n) % itemCount);
   }, [carouselItems, isTransition, setIsTransition, setCurrentItemIndex]);
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      setStartX(e.touches[0].pageX);
+      setEndX(e.touches[0].pageX);
+    },
+    [setStartX, setEndX]
+  );
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      setEndX(e.changedTouches[0].pageX);
+    },
+    [setEndX]
+  );
+  const handleTouchEnd = useCallback(() => {
+    const distanceX = endX - startX;
+    if (Math.abs(distanceX) > MINIMUM_DISTANCE) {
+      if (distanceX > 0) {
+        handlePrev();
+      } else {
+        handleNext();
+      }
+    }
+  }, [startX, endX, handlePrev, handleNext]);
+  const onDotClick = useCallback(
+    (idx: number) => {
+      if (currentItemIndex === idx) return;
+      setIsTransition(true);
+      setCurrentItemIndex(idx);
+    },
+    [currentItemIndex, setIsTransition, setCurrentItemIndex]
+  );
 
   return (
     <Container className={className}>
       <Screen
-        onTouchStart={(e) => {
-          setStartX(e.touches[0].pageX);
-          setEndX(e.touches[0].pageX);
-        }}
-        onTouchMove={(e) => {
-          setEndX(e.changedTouches[0].pageX);
-        }}
-        onTouchEnd={() => {
-          const distanceX = endX - startX;
-          if (Math.abs(distanceX) > minimumDistance) {
-            if (distanceX > 0) {
-              handlePrev();
-            } else {
-              handleNext();
-            }
-          }
-        }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <ItemListContainer
           currentItemIndex={currentItemIndex}
@@ -101,10 +126,10 @@ export const Carousel: React.FC<CarouselProps> = ({
             <ItemContainer key={i}>
               <Item
                 src={data.imageUrl}
-                isCenter={i === currentItemIndex + 2}
+                isCenter={isCenterIndex(i)}
                 isTransition={isTransition}
                 onClick={() => {
-                  if (currentItemIndex !== i - 2) {
+                  if (!isCenterIndex(i)) {
                     setIsTransition(true);
                     setCurrentItemIndex(i - 2);
                   }
@@ -115,61 +140,24 @@ export const Carousel: React.FC<CarouselProps> = ({
           ))}
         </ItemListContainer>
       </Screen>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 16,
-        }}
-      >
-        <button
-          onClick={handlePrev}
-          style={{
-            border: 0,
-            padding: 0,
-            background: "none",
-            color: Color.base,
-            cursor: "pointer",
-            verticalAlign: "middle",
-          }}
-        >
-          <PlayArrow
-            style={{ transform: "scaleX(-1)", verticalAlign: "middle" }}
-            fontSize="large"
-          />
-        </button>
-        {[...Array(carouselItems.length)].map((_, idx) => (
-          <Circle
-            key={idx}
-            fontSize="small"
-            style={{
-              color:
-                idx + 1 === displayIndex
-                  ? Color.base
-                  : `rgb(from ${Color.base} r g b / 0.5)`,
-            }}
-            onClick={() => {
-              if (currentItemIndex === idx) return;
-              setIsTransition(true);
-              setCurrentItemIndex(idx);
-            }}
-          />
-        ))}
-        <button
-          onClick={handleNext}
-          style={{
-            border: 0,
-            padding: 0,
-            background: "none",
-            color: Color.base,
-            cursor: "pointer",
-            verticalAlign: "middle",
-          }}
-        >
-          <PlayArrow style={{ verticalAlign: "middle" }} fontSize="large" />
-        </button>
-      </div>
+      <ButtonsContainer>
+        <ArrowButton onClick={handlePrev}>
+          <PlayArrow className={HorizontalFlipStyle} fontSize="large" />
+        </ArrowButton>
+        {Array(carouselItems.length)
+          .fill(0)
+          .map((_, idx) => (
+            <Circle
+              key={idx}
+              className={DotStyle(idx + 1 === displayIndex)}
+              onClick={() => onDotClick(idx)}
+              fontSize="small"
+            />
+          ))}
+        <ArrowButton onClick={handleNext}>
+          <PlayArrow fontSize="large" />
+        </ArrowButton>
+      </ButtonsContainer>
     </Container>
   );
 };
