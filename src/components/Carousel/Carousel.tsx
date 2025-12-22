@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Circle from "@mui/icons-material/Circle";
 import PlayArrow from "@mui/icons-material/PlayArrow";
 import {
@@ -108,6 +108,13 @@ export const Carousel: React.FC<CarouselProps> = ({
     },
     [currentItemIndex, setIsTransition, setCurrentItemIndex]
   );
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      handleNext();
+    }, 8000);
+    return () => clearInterval(id);
+  }, [handleNext]);
 
   return (
     <Container className={className}>
