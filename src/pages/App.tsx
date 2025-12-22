@@ -1,9 +1,9 @@
-import { useMemo } from "react";
 import { Carousel } from "../components";
 import data from "../data/data.json";
 import { FontFamily } from "../definitions";
 import { Profile } from "./App.components";
 import { useSignboard } from "./App.hooks";
+import { usePickUp } from "./App.hooks/usePickUp";
 import {
   AppContainer,
   Menu,
@@ -14,50 +14,23 @@ import {
   TopContainer,
 } from "./App.styled";
 
-const ArtType = {
-  OriginalArt: "OriginalArt",
-  FanArt: "FanArt",
-  Porcelain: "Porcelain",
-  Other: "Other",
-} as const;
-type ArtType = (typeof ArtType)[keyof typeof ArtType];
-
 export const App = () => {
   const { isMenuOpen, menuLabel, onTurnSignboard } = useSignboard();
 
-  const pickupItems = useMemo(() => {
-    return data.pickup
-      .map((title) => {
-        const foundOriginalArt = data.originalArt.find(
-          (art) => art.title === title
-        );
-        const foundFanArt = data.fanArt.find((art) => art.title === title);
-        const foundPorcelain = data.porcelain.find(
-          (art) => art.title === title
-        );
-        const foundOther = data.others.find((art) => art.title === title);
-        const item =
-          foundOriginalArt ?? foundFanArt ?? foundPorcelain ?? foundOther;
-        if (item === undefined) return undefined;
-        const type: ArtType = foundOriginalArt
-          ? ArtType.OriginalArt
-          : foundFanArt
-            ? ArtType.FanArt
-            : foundPorcelain
-              ? ArtType.Porcelain
-              : ArtType.Other;
-        return {
-          ...item,
-          type,
-          onClick: () => {},
-        };
-      })
-      .filter((item) => item !== undefined);
-  }, [data]);
+  const { pickupItems } = usePickUp(data);
 
   return (
-    <AppContainer>
+    <AppContainer isMenuOpen={isMenuOpen}>
       <SpContainer>
+        {isMenuOpen && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 1,
+            }}
+          />
+        )}
         <Signboard onClick={onTurnSignboard} isMenuOpen={isMenuOpen}>
           {menuLabel}
         </Signboard>

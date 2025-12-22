@@ -2,9 +2,8 @@ import { css } from "@emotion/css";
 import styled from "@emotion/styled";
 import { Color, FontFamily, MaxWidth, withAlpha, Shadow } from "../definitions";
 
-export const AppContainer = styled.div`
+export const AppContainer = styled.div<{ isMenuOpen?: boolean }>`
   background-color: ${Color.base};
-  overflow-y: auto;
 `;
 
 export const SpContainer = styled.div`
@@ -18,9 +17,9 @@ export const SpContainer = styled.div`
 `;
 
 export const Signboard = styled.div<{ isMenuOpen: boolean }>`
-  position: absolute;
+  position: fixed;
   top: 24px;
-  right: 16px;
+  right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
   width: 80px;
   height: 64px;
   background-color: ${(props) =>
@@ -41,12 +40,12 @@ export const Signboard = styled.div<{ isMenuOpen: boolean }>`
 `;
 
 export const Menu = styled.div`
-  position: absolute;
+  position: fixed;
   font-family: ${FontFamily.Heading};
   font-size: 32px;
   top: 96px;
-  left: 24px;
-  right: 24px;
+  left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 24px);
+  right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 24px);
   background-color: ${withAlpha(Color.background, 0.7)};
   z-index: 1;
   padding: 40px;
