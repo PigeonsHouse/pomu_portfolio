@@ -25,9 +25,7 @@ export const App = () => {
   return (
     <AppContainer isMenuOpen={isMenuOpen}>
       <SpContainer>
-        {isMenuOpen && (
-          <Backdrop onClick={onTurnSignboard} onTouchEnd={onTurnSignboard} />
-        )}
+        {isMenuOpen && <Backdrop onClick={onTurnSignboard} />}
         <Signboard onClick={onTurnSignboard} isMenuOpen={isMenuOpen}>
           {menuLabel}
         </Signboard>
