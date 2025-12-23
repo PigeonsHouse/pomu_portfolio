@@ -16,6 +16,12 @@ export const SpContainer = styled.div`
   flex-direction: column;
 `;
 
+export const Backdrop = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+`;
+
 export const Signboard = styled.div<{ isMenuOpen: boolean }>`
   position: fixed;
   top: 24px;
@@ -82,8 +88,50 @@ export const Title = styled.span`
   text-shadow: ${Shadow};
   margin-left: 8px;
   user-select: none;
+  white-space: pre-wrap;
 `;
 
 export const ProfileContainerStyle = css`
   margin-bottom: 80px;
+`;
+
+export const WorksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-bottom: 40px;
+`;
+
+export const PickupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+export const WorkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 20px;
+`;
+
+export const HeadTitle = styled.h2`
+  margin: 0;
+  font-family: ${FontFamily.Heading};
+  font-weight: inherit;
+  font-size: 32px;
+  text-align: center;
+`;
+
+export const WorkItemContainer = styled.div`
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+`;
+
+export const WorkItemImage = styled.img`
+  aspect-ratio: 1;
+  max-width: calc((100% - 16px) / 2);
+  object-fit: cover;
+  cursor: pointer;
 `;
