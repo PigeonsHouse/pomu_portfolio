@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { ArtType, type Data } from "../../types";
 
 export const usePickUp = (data: Data) => {
-  const pickupItems = useMemo(() => {
+  const pickUpItems = useMemo(() => {
     return data.pickup
       .map((title) => {
         const foundOriginalArt = data.originalArt.find(
@@ -40,5 +40,5 @@ export const usePickUp = (data: Data) => {
       .filter((item) => item !== undefined);
   }, [data]);
 
-  return { pickupItems };
+  return { pickUpItems };
 };

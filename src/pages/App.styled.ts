@@ -101,45 +101,18 @@ export const WorksContainer = styled.div`
   gap: 64px;
 `;
 
-export const PickupContainer = styled.div`
+export const ContactContainer = styled.div`
+  margin: 0 16px;
+  border-top: solid 1px ${Color.gray};
+  padding: 24px 32px;
+  padding-bottom: 40px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 40px;
 `;
 
-export const WorkContainer = styled.div`
+export const SnsListContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: 0 20px;
-`;
-
-export const HeadTitle = styled.h2`
-  margin: 0;
-  font-family: ${FontFamily.Heading};
-  font-weight: inherit;
-  font-size: 32px;
-  text-align: center;
-`;
-
-export const WorkItemContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-`;
-
-export const WorkItemImage = styled.img`
-  aspect-ratio: 1;
-  width: calc((100% - 16px) / 2);
-  object-fit: cover;
-  cursor: pointer;
-  background-color: ${Color.base};
-`;
-
-export const FormTitle = styled.h3`
-  font-family: ${FontFamily.Heading};
-  text-align: center;
-  font-size: 24px;
-  margin: 0;
-  font-weight: unset;
+  gap: 64px;
+  justify-content: center;
 `;

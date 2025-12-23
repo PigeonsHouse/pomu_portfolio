@@ -17,7 +17,7 @@ type CarouselItem = {
   imageUrl: string;
   onClick: () => void;
 };
-type CarouselProps = {
+export type CarouselProps = {
   className?: string;
   carouselItems: CarouselItem[];
 };

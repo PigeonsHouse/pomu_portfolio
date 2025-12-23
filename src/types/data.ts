@@ -24,8 +24,14 @@ export type Work = {
   creationTerm: string;
 };
 
+export const Sns = {
+  Instagram: "instagram",
+  X: "x",
+} as const;
+export type Sns = (typeof Sns)[keyof typeof Sns];
+
 export type Contact = {
-  [sns: string]: string;
+  [sns in Sns]: string;
 };
 
 export type Works = {

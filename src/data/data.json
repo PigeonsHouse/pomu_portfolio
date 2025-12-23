@@ -1,8 +1,8 @@
 {
-  "topImageUrl": "/work_1.jpg",
+  "topImageUrl": "/works/work_1.jpg",
   "profile": {
     "name": "ふるぽむ",
-    "icon": "/work_1.jpg",
+    "icon": "/works/work_1.jpg",
     "description": "覗いてくれてありがとうございます。\n絵を描いたり、焼き物を作ったりしています。\n心の癒やしになるものを目指して描いてます。\nよろしくお願いいたします。",
     "properties": {
       "birthday": "2002/05/08",
@@ -19,13 +19,13 @@
   ],
   "originalArt": [
     {
-      "imageUrl": "/work_3.png",
+      "imageUrl": "/works/work_3.png",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/work_3.png",
+      "imageUrl": "/works/work_3.png",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
@@ -39,13 +39,13 @@
   ],
   "fanArt": [
     {
-      "imageUrl": "/work_2.png",
+      "imageUrl": "/works/work_2.png",
       "title": "ぼくたちの声を届けるのだ！！！",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/work_2.png",
+      "imageUrl": "/works/work_2.png",
       "title": "ぼくたちの声を届けるのだ！！！",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
@@ -59,13 +59,13 @@
   ],
   "porcelain": [
     {
-      "imageUrl": "/work_1.jpg",
+      "imageUrl": "/works/work_1.jpg",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
     },
     {
-      "imageUrl": "/work_1.jpg",
+      "imageUrl": "/works/work_1.jpg",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
@@ -79,7 +79,7 @@
   ],
   "others": [
     {
-      "imageUrl": "/work_1.jpg",
+      "imageUrl": "/works/work_1.jpg",
       "title": "一緒にどう？",
       "description": "hogehoge",
       "creationTerm": "2025年11月～12月"
