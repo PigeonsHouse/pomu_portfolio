@@ -1,14 +1,11 @@
 import { HeadTitle, SnsLink } from "../components";
 import data from "../data/data.json";
-import { Form, PickUp, Profile, Works } from "./App.components";
+import { Form, Menu, PickUp, Profile, Works } from "./App.components";
 import { usePickUp, useSignboard } from "./App.hooks";
 import {
   AppContainer,
-  Backdrop,
   ContactContainer,
-  Menu,
   ProfileContainerStyle,
-  Signboard,
   SnsListContainer,
   SpContainer,
   Title,
@@ -19,17 +16,13 @@ import {
 export const App = () => {
   const title = "PORTFOLIO\nSITE";
 
-  const { isMenuOpen, menuLabel, onTurnSignboard } = useSignboard();
+  const { isMenuOpen, onTurnSignboard } = useSignboard();
   const { pickUpItems } = usePickUp(data);
 
   return (
     <AppContainer isMenuOpen={isMenuOpen}>
       <SpContainer>
-        {isMenuOpen && <Backdrop onClick={onTurnSignboard} />}
-        <Signboard onClick={onTurnSignboard} isMenuOpen={isMenuOpen}>
-          {menuLabel}
-        </Signboard>
-        {isMenuOpen && <Menu>PROFILE</Menu>}
+        <Menu isMenuOpen={isMenuOpen} onTurnSignboard={onTurnSignboard} />
         <TopContainer bgImage={data.topImageUrl}>
           <Title>{title}</Title>
         </TopContainer>
