@@ -50,8 +50,8 @@ export const Menu = styled.div`
   font-family: ${FontFamily.Heading};
   font-size: 32px;
   top: 96px;
-  left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 24px);
-  right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 24px);
+  left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
+  right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
   background-color: ${withAlpha(Color.background, 0.7)};
   z-index: 1;
   padding: 40px;
@@ -99,7 +99,6 @@ export const WorksContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 64px;
-  padding-bottom: 40px;
 `;
 
 export const PickupContainer = styled.div`
@@ -131,7 +130,16 @@ export const WorkItemContainer = styled.div`
 
 export const WorkItemImage = styled.img`
   aspect-ratio: 1;
-  max-width: calc((100% - 16px) / 2);
+  width: calc((100% - 16px) / 2);
   object-fit: cover;
   cursor: pointer;
+  background-color: ${Color.base};
+`;
+
+export const FormTitle = styled.h3`
+  font-family: ${FontFamily.Heading};
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  font-weight: unset;
 `;
