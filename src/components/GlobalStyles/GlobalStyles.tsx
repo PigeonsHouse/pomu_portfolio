@@ -5,7 +5,7 @@ const style = css`
   body {
     margin: 0;
     font-family: ${FontFamily.Default};
-    color: ${Color.base};
+    color: ${Color.Base};
     font-weight: 400;
   }
 `;

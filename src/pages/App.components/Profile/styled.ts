@@ -20,7 +20,7 @@ export const Card = styled.div`
   max-width: 360px;
   margin: 0 auto;
   padding: 32px 24px;
-  background-color: ${Color.background};
+  background-color: ${Color.Background};
   border-radius: 8px;
   box-shadow: ${Shadow};
   display: flex;

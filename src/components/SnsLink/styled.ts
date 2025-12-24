@@ -11,7 +11,7 @@ export const LinkContainer = styled.a`
 `;
 
 export const IconContainer = styled.div`
-  background-color: ${Color.base};
+  background-color: ${Color.Base};
   aspect-ratio: 1 / 1;
   width: 100px;
   border-radius: 9999px;

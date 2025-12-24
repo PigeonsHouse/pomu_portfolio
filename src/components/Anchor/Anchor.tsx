@@ -18,18 +18,14 @@ type AnchorProps = {
 export const Anchor: React.FC<AnchorProps> = ({ id, offset }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const handleHashChange = useCallback(
-    (e: HashChangeEvent) => {
-      e.preventDefault();
-      if (window.location.hash.substring(1) !== id || !ref.current) return;
-      const top =
-        -window.scrollY + ref.current.offsetTop + (offset ? offset : 0);
-      window.scrollBy({ top, behavior: "smooth" });
-    },
-    [id, ref]
-  );
+  const handleHashChange = useCallback(() => {
+    if (window.location.hash.substring(1) !== id || !ref.current) return;
+    const top = -window.scrollY + ref.current.offsetTop + (offset ? offset : 0);
+    window.scrollBy({ top, behavior: "smooth" });
+  }, [id, ref]);
 
   useEffect(() => {
+    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => {
       window.removeEventListener("hashchange", handleHashChange);

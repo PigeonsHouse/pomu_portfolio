@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 import { Color, FontFamily, MaxWidth, Shadow } from "../definitions";
 
 export const AppContainer = styled.div<{ isMenuOpen?: boolean }>`
-  background-color: ${Color.base};
+  background-color: ${Color.Base};
 `;
 
 export const SpContainer = styled.div`
   position: relative;
-  background-color: ${Color.white};
+  background-color: ${Color.White};
   max-width: ${MaxWidth}px;
   margin: 0 auto;
   box-shadow: ${Shadow};
@@ -61,7 +61,7 @@ export const AnchorWrapper = styled.div``;
 
 export const ContactContainer = styled.div`
   margin: 0 16px;
-  border-top: solid 1px ${Color.gray};
+  border-top: solid 1px ${Color.Gray};
   padding: 24px 32px;
   padding-bottom: 40px;
   display: flex;

@@ -32,7 +32,7 @@ export const Label = styled.label`
   &::after {
     margin-left: 4px;
     content: "*";
-    color: ${Color.background};
+    color: ${Color.Background};
   }
 `;
 
@@ -41,11 +41,11 @@ export const FormInput = styled.input`
   box-sizing: border-box;
   height: 32px;
   border-radius: 4px;
-  border: 1px solid ${Color.base};
+  border: 1px solid ${Color.Base};
   outline: none;
   padding: 8px;
   &:focus {
-    outline: 1px solid ${Color.base};
+    outline: 1px solid ${Color.Base};
   }
 `;
 
@@ -55,12 +55,12 @@ export const FormTextarea = styled.textarea`
   height: 200px;
   resize: none;
   border-radius: 4px;
-  border: 1px solid ${Color.base};
+  border: 1px solid ${Color.Base};
   outline: none;
   vertical-align: middle;
   padding: 8px;
   &:focus {
-    outline: 1px solid ${Color.base};
+    outline: 1px solid ${Color.Base};
   }
 `;
 
@@ -69,8 +69,8 @@ export const FormSubmitButton = styled.input`
   border: none;
   padding: 0;
   height: 32px;
-  background-color: ${Color.base};
+  background-color: ${Color.Base};
   border-radius: 4px;
-  color: ${Color.white};
+  color: ${Color.White};
   cursor: pointer;
 `;

@@ -5,12 +5,13 @@ import {
   MaxWidth,
   Shadow,
   withAlpha,
+  ZIndex,
 } from "../../../definitions";
 
 export const Backdrop = styled.div`
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: ${ZIndex.Menu};
 `;
 
 export const Signboard = styled.div<{ isMenuOpen: boolean }>`
@@ -20,8 +21,8 @@ export const Signboard = styled.div<{ isMenuOpen: boolean }>`
   width: 80px;
   height: 64px;
   background-color: ${(props) =>
-    props.isMenuOpen ? Color.background : Color.base};
-  z-index: 1;
+    props.isMenuOpen ? Color.Background : Color.Base};
+  z-index: ${ZIndex.Menu};
   border-radius: 4px;
   box-shadow: ${Shadow};
   font-family: ${FontFamily.Heading};
@@ -41,8 +42,8 @@ export const MenuContainer = styled.div`
   top: 96px;
   left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
   right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
-  background-color: ${withAlpha(Color.background, 0.7)};
-  z-index: 1;
+  background-color: ${withAlpha(Color.Background, 0.7)};
+  z-index: ${ZIndex.Menu};
   padding: 40px;
   border-radius: 8px;
   backdrop-filter: blur(4px);
@@ -60,7 +61,7 @@ export const MenuLabel = styled.button`
   padding: 0;
   border: none;
   text-align: left;
-  border-bottom: 1px dashed ${Color.base};
+  border-bottom: 1px dashed ${Color.Base};
   color: inherit;
   cursor: pointer;
 `;

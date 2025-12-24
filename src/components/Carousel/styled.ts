@@ -40,7 +40,7 @@ export const ItemContainer = styled.div`
 export const Item = styled.img<{ isCenter: boolean; isTransition: boolean }>`
   width: ${(props) => (props.isCenter ? "100%" : "70%")};
   height: ${(props) => (props.isCenter ? "100%" : "70%")};
-  background-color: ${Color.base};
+  background-color: ${Color.Base};
   object-fit: cover;
   position: absolute;
   top: 50%;
@@ -61,7 +61,7 @@ export const ArrowButton = styled.button`
   border: 0;
   padding: 0;
   background: none;
-  color: ${Color.base};
+  color: ${Color.Base};
   cursor: pointer;
   & svg {
     vertical-align: middle;
@@ -73,5 +73,5 @@ export const HorizontalFlipStyle = css`
 `;
 
 export const DotStyle = (isSelect: boolean) => css`
-  color: ${isSelect ? Color.base : `rgb(from ${Color.base} r g b / 0.5)`};
+  color: ${isSelect ? Color.Base : `rgb(from ${Color.Base} r g b / 0.5)`};
 `;

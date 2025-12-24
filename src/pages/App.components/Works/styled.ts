@@ -19,5 +19,5 @@ export const ItemImage = styled.img`
   width: calc((100% - 16px) / 2);
   object-fit: cover;
   cursor: pointer;
-  background-color: ${Color.base};
+  background-color: ${Color.Base};
 `;
