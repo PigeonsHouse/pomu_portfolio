@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { ArtType, type Data } from "../../types";
+import { ArtType, type Data, type Work } from "../../types";
 
-export const usePickUp = (data: Data) => {
+export const usePickUp = (data: Data, selectWork: (work: Work) => void) => {
   const pickUpItems = useMemo(() => {
     return data.pickup
       .map((title) => {
@@ -30,7 +30,7 @@ export const usePickUp = (data: Data) => {
           return ArtType.Others;
         })();
 
-        const onClick = () => {};
+        const onClick = () => selectWork(item);
         return {
           ...item,
           type,

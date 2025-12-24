@@ -4,4 +4,5 @@ export * from "./Menu";
 export * from "./PickUp";
 export * from "./Profile";
 export * from "./TopJumper";
+export * from "./WorkDialog";
 export * from "./Works";

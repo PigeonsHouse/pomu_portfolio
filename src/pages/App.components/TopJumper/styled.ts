@@ -24,7 +24,7 @@ export const Container = styled.div<{ isVisible?: boolean }>`
   cursor: pointer;
   opacity: 1;`
       : `
-  user-select: none;
+  pointer-events: none;
   opacity: 0;`}
 `;
 

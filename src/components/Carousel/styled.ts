@@ -42,6 +42,7 @@ export const Item = styled.img<{ isCenter: boolean; isTransition: boolean }>`
   height: ${(props) => (props.isCenter ? "100%" : "70%")};
   background-color: ${Color.Base};
   object-fit: cover;
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,4 +75,5 @@ export const HorizontalFlipStyle = css`
 
 export const DotStyle = (isSelect: boolean) => css`
   color: ${isSelect ? Color.Base : `rgb(from ${Color.Base} r g b / 0.5)`};
+  cursor: pointer;
 `;

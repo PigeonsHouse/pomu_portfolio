@@ -6,4 +6,5 @@ export const Color = {
   Base: "#665048",
   Background: "#F2CEDD",
   Gray: "#878787",
+  Black: "#000000",
 };
