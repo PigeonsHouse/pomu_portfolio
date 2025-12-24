@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import { AnchorId } from "../../../components";
+import { AnchorId, SignBoard } from "../../../components";
 import { hashChange } from "../../../utils";
-import { Backdrop, MenuContainer, MenuLabel, Signboard } from "./styled";
+import { Backdrop, MenuContainer, MenuLabel } from "./styled";
 
 const labelData = [
   { label: "PROFILE", anchorId: AnchorId.Profile },
@@ -18,8 +18,6 @@ type MenuProps = {
 };
 
 export const Menu: React.FC<MenuProps> = ({ isMenuOpen, onTurnSignboard }) => {
-  const menuLabel = isMenuOpen ? "OPEN" : "MENU";
-
   const labelItems = useMemo(
     () =>
       labelData.map((data) => ({
@@ -35,18 +33,14 @@ export const Menu: React.FC<MenuProps> = ({ isMenuOpen, onTurnSignboard }) => {
   return (
     <>
       {isMenuOpen && <Backdrop onClick={onTurnSignboard} />}
-      <Signboard onClick={onTurnSignboard} isMenuOpen={isMenuOpen}>
-        {menuLabel}
-      </Signboard>
-      {isMenuOpen && (
-        <MenuContainer>
-          {labelItems.map((item, i) => (
-            <MenuLabel key={i} onClick={item.onClick}>
-              {item.label}
-            </MenuLabel>
-          ))}
-        </MenuContainer>
-      )}
+      <SignBoard isOpen={isMenuOpen} onClick={onTurnSignboard} />
+      <MenuContainer isOpen={isMenuOpen}>
+        {labelItems.map((item, i) => (
+          <MenuLabel key={i} onClick={item.onClick}>
+            {item.label}
+          </MenuLabel>
+        ))}
+      </MenuContainer>
     </>
   );
 };

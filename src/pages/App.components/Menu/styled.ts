@@ -14,30 +14,7 @@ export const Backdrop = styled.div`
   z-index: ${ZIndex.Menu};
 `;
 
-export const Signboard = styled.div<{ isMenuOpen: boolean }>`
-  position: fixed;
-  top: 24px;
-  right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
-  width: 80px;
-  height: 64px;
-  background-color: ${(props) =>
-    props.isMenuOpen ? Color.Background : Color.Base};
-  z-index: ${ZIndex.Menu};
-  border-radius: 4px;
-  box-shadow: ${Shadow};
-  font-family: ${FontFamily.Heading};
-  font-size: 20px;
-  color: ${(props) => (props.isMenuOpen ? "inherit" : "white")};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: underline dotted;
-  text-underline-offset: 4px;
-  user-select: none;
-  cursor: pointer;
-`;
-
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 96px;
   left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
@@ -51,6 +28,9 @@ export const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
+  transition: opacity 0.4s;
+  opacity: ${(props) => (props.isOpen ? 1 : 0)};
+  pointer-events: ${(props) => (props.isOpen ? "unset" : "none")};
 `;
 
 export const MenuLabel = styled.button`
