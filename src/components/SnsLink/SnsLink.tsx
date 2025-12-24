@@ -1,22 +1,29 @@
+import { Url } from "../../definitions";
 import type { Sns } from "../../types";
 import { LinkContainer, IconContainer, IconImage, Label } from "./styled";
 
-type SnsLinkProps = {
-  variant: Sns;
-  snsId: string;
+type SnsInfo = {
+  url: (snsId: string) => string;
+  iconUrl: string;
+  label: string;
 };
 
-const snsMap = {
+const snsMap: { [sns in Sns]: SnsInfo } = {
   x: {
-    url: (id: string) => `https://x.com/${id}`,
+    url: Url.X,
     label: "X",
     iconUrl: "/logo/x.svg",
   },
   instagram: {
-    url: (id: string) => `https://instagram.com/${id}`,
+    url: Url.Instagram,
     label: "Instagram",
     iconUrl: "/logo/instagram.svg",
   },
+};
+
+type SnsLinkProps = {
+  variant: Sns;
+  snsId: string;
 };
 
 export const SnsLink: React.FC<SnsLinkProps> = ({ variant, snsId }) => {

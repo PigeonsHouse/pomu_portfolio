@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { Url } from "../../../definitions";
 import {
   Container,
   FormInput,
@@ -10,32 +11,23 @@ import {
   Title,
 } from "./styled";
 
+const deployId =
+  "AKfycby2zmUeN-B4ArUHJGGPHRWz6sfBO08hRpKJMRJf1yw8DWItZV2GEK3lGt3N-X62-f7O" as const;
+
 export const Form = () => {
   const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const { name, email, content } = Object.fromEntries(formData);
+    const body = new FormData(e.target as HTMLFormElement);
+    const { name, email, content } = Object.fromEntries(body);
 
     const isConfirm = confirm(
       `以下の内容で送信してもよろしいですか？\n${name}さん (${email})\n${content}`
     );
     if (!isConfirm) return;
 
-    fetch(
-      "https://script.google.com/macros/s/AKfycbzURS-PrfZDxU00QXBBaPkycJIxt3PGmMH72rDdShh2ovlvsrNE0FWOosGmBYMFPOB9/exec",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
-      .then((result) => {
-        if (result.status >= 400) {
-          alert("エラーが発生しました");
-        }
-      })
-      .catch(() => {
-        alert("エラーが発生しました");
-      });
+    fetch(Url.GasServer(deployId), { method: "POST", body }).catch(() =>
+      alert("エラーが発生しました")
+    );
   }, []);
 
   return (
