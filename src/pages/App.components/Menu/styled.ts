@@ -38,8 +38,6 @@ export const Signboard = styled.div<{ isMenuOpen: boolean }>`
 
 export const MenuContainer = styled.div`
   position: fixed;
-  font-family: ${FontFamily.Heading};
-  font-size: 32px;
   top: 96px;
   left: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
   right: calc(max(calc(100% - ${MaxWidth}px), 0px) / 2 + 16px);
@@ -49,4 +47,20 @@ export const MenuContainer = styled.div`
   border-radius: 8px;
   backdrop-filter: blur(4px);
   box-shadow: ${Shadow};
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
+
+export const MenuLabel = styled.button`
+  font-family: ${FontFamily.Heading};
+  font-size: 32px;
+  width: 100%;
+  background: none;
+  padding: 0;
+  border: none;
+  text-align: left;
+  border-bottom: 1px dashed ${Color.base};
+  color: inherit;
+  cursor: pointer;
 `;
