@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import ArrowBack from "@mui/icons-material/ArrowBackIosNew";
+import { hashChange } from "../../../utils";
 import { ArrowStyle, Container } from "./styled";
 
 export const TopJumper = () => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const onClick = useCallback(() => {
+    hashChange(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   const calcIsScrolling = useCallback(() => {
