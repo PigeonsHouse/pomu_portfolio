@@ -10,7 +10,7 @@ export const AnchorId = {
 } as const;
 export type AnchorId = (typeof AnchorId)[keyof typeof AnchorId];
 
-type AnchorProps = {
+export type AnchorProps = {
   id: AnchorId;
   offset?: number;
 };

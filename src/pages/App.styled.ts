@@ -57,8 +57,6 @@ export const WorksContainer = styled.div`
   gap: 64px;
 `;
 
-export const AnchorWrapper = styled.div``;
-
 export const ContactContainer = styled.div`
   margin: 0 16px;
   border-top: solid 1px ${Color.Gray};

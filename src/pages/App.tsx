@@ -1,6 +1,7 @@
 import { Anchor, AnchorId, HeadTitle, SnsLink } from "../components";
 import data from "../data/data.json";
 import {
+  AnchorWith,
   Form,
   Menu,
   PickUp,
@@ -10,7 +11,6 @@ import {
 } from "./App.components";
 import { usePickUp, useSignboard } from "./App.hooks";
 import {
-  AnchorWrapper,
   AppContainer,
   ContactContainer,
   ProfileContainerStyle,
@@ -39,24 +39,19 @@ export const App = () => {
         <Profile className={ProfileContainerStyle} profile={data.profile} />
         <WorksContainer>
           <PickUp items={pickUpItems} />
-          <AnchorWrapper>
-            <Anchor id={AnchorId.OriginalArt} offset={anchorOffset} />
+          <AnchorWith id={AnchorId.OriginalArt} offset={anchorOffset}>
             <Works title="ORIGINAL ART" works={data.originalArt} />
-          </AnchorWrapper>
-          <AnchorWrapper>
-            <Anchor id={AnchorId.FanArt} offset={anchorOffset} />
+          </AnchorWith>
+          <AnchorWith id={AnchorId.FanArt} offset={anchorOffset}>
             <Works title="FAN ART" works={data.fanArt} />
-          </AnchorWrapper>
-          <AnchorWrapper>
-            <Anchor id={AnchorId.Porcelain} offset={anchorOffset} />
+          </AnchorWith>
+          <AnchorWith id={AnchorId.Porcelain} offset={anchorOffset}>
             <Works title="PORCELAIN" works={data.porcelain} />
-          </AnchorWrapper>
-          <AnchorWrapper>
-            <Anchor id={AnchorId.Others} offset={anchorOffset} />
+          </AnchorWith>
+          <AnchorWith id={AnchorId.Others} offset={anchorOffset}>
             <Works title="OTHERS" works={data.others} />
-          </AnchorWrapper>
-          <AnchorWrapper>
-            <Anchor id={AnchorId.Contact} offset={anchorOffset} />
+          </AnchorWith>
+          <AnchorWith id={AnchorId.Contact} offset={anchorOffset}>
             <ContactContainer>
               <HeadTitle>CONTACT</HeadTitle>
               <SnsListContainer>
@@ -65,7 +60,7 @@ export const App = () => {
               </SnsListContainer>
               <Form />
             </ContactContainer>
-          </AnchorWrapper>
+          </AnchorWith>
         </WorksContainer>
       </SpContainer>
       <TopJumper />
