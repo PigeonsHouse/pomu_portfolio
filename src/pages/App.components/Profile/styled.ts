@@ -39,6 +39,7 @@ export const Icon = styled.img`
   height: 120px;
   object-fit: cover;
   border-radius: 9999px;
+  object-position: top center;
 `;
 
 export const TopInfo = styled.div`

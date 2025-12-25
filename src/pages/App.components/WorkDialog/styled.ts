@@ -21,8 +21,8 @@ export const WorkCard = styled.div`
   inset: 0;
   z-index: ${ZIndex.Work};
   box-sizing: border-box;
-  width: calc(100% - 32px);
-  max-width: calc(${MaxWidth}px - 32px);
+  width: calc(100% - 40px);
+  max-width: calc(${MaxWidth}px - 40px);
   max-height: fit-content;
   border-radius: 8px;
   margin: auto;
@@ -30,8 +30,25 @@ export const WorkCard = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: ${Shadow};
-  padding: 32px;
+  padding: 16px;
   gap: 16px;
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border: 2px solid ${Color.Base};
+  color: ${Color.Base};
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 9999px;
+  width: 36px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const WorkImage = styled.img`
@@ -45,6 +62,7 @@ export const Title = styled.h3`
 
 export const Description = styled.p`
   margin: 0;
+  line-break: anywhere;
 `;
 
 export const CreateTerm = styled.small``;

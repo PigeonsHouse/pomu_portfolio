@@ -1,7 +1,9 @@
 import { useCallback } from "react";
+import { Close } from "@mui/icons-material";
 import type { Work } from "../../../types";
 import {
   Backdrop,
+  CloseButton,
   CreateTerm,
   Description,
   Title,
@@ -29,6 +31,9 @@ export const WorkDialog: React.FC<WorkDialogProps> = ({
     <Backdrop open={isSelectWork} onClick={closeWork}>
       {isSelectWork && targetWork && (
         <WorkCard onClick={stopPropagation}>
+          <CloseButton onClick={closeWork}>
+            <Close />
+          </CloseButton>
           <WorkImage src={targetWork.imageUrl} />
           <Title>{targetWork.title}</Title>
           <Description>{targetWork.description}</Description>
