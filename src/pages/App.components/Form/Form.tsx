@@ -17,7 +17,8 @@ const deployId =
 export const Form = () => {
   const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const body = new FormData(e.target as HTMLFormElement);
+    const formElement = e.target as HTMLFormElement;
+    const body = new FormData(formElement);
     const { name, email, content } = Object.fromEntries(body);
 
     const isConfirm = confirm(
@@ -25,9 +26,20 @@ export const Form = () => {
     );
     if (!isConfirm) return;
 
-    fetch(Url.GasServer(deployId), { method: "POST", body }).catch(() =>
-      alert("エラーが発生しました")
-    );
+    fetch(Url.GasServer(deployId), { method: "POST", body })
+      .then((response) =>
+        response.text().then((text) => {
+          if (text === "Success") {
+            alert("送信に成功しました");
+            formElement.reset();
+          } else if (text === "Too Many Request") {
+            alert("サーバが混雑しています");
+          } else {
+            alert("エラーが発生しました");
+          }
+        })
+      )
+      .catch(() => alert("エラーが発生しました"));
   }, []);
 
   return (
