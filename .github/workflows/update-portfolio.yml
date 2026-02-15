@@ -1,0 +1,160 @@
+name: Update Portfolio
+
+on:
+  repository_dispatch:
+    types: [update-portfolio]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Display payload
+        run: |
+          echo "=== Received Payload ==="
+          echo "Dry Run: ${{ github.event.client_payload.dry_run }}"
+          echo ""
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Save current JSON
+        run: |
+          echo "=== Current JSON ==="
+          cat src/data/data.json
+          echo ""
+          cp src/data/data.json /tmp/old-data.json
+
+      - name: Update JSON
+        run: |
+          echo "=== New JSON ==="
+          echo '${{ toJson(github.event.client_payload.data) }}' | jq '.' > src/data/data.json
+          cat src/data/data.json
+          echo ""
+
+      - name: Show JSON diff
+        run: |
+          echo "=== JSON Diff ==="
+          npm install -g json-diff || true
+          json-diff /tmp/old-data.json src/data/data.json || echo "JSON diff tool not available, showing git diff instead:"
+          git diff --no-index --word-diff=color /tmp/old-data.json src/data/data.json || true
+          echo ""
+
+      - name: Display image changes
+        run: |
+          echo "=== Image Changes ==="
+          echo "Images to delete:"
+          echo '${{ toJson(github.event.client_payload.image_changes.toDelete) }}' | jq -r '.[]' || echo "None"
+          echo ""
+          echo "Images to add:"
+          echo '${{ toJson(github.event.client_payload.image_changes.toAdd) }}' | jq -c '.[]' || echo "None"
+          echo ""
+          echo "Images to rename:"
+          echo '${{ toJson(github.event.client_payload.image_changes.toRename) }}' | jq -c '.[]' || echo "None"
+          echo ""
+
+      - name: Download new images
+        if: github.event.client_payload.dry_run == false
+        run: |
+          echo "=== Downloading new images ==="
+
+          # Parse image_changes.toAdd
+          images_to_add='${{ toJson(github.event.client_payload.image_changes.toAdd) }}'
+
+          echo "$images_to_add" | jq -c '.[]' | while read -r item; do
+            url=$(echo "$item" | jq -r '.url')
+            path=$(echo "$item" | jq -r '.path')
+
+            echo "Downloading: $url -> public$path"
+
+            # Create directory if it doesn't exist
+            mkdir -p "public$(dirname "$path")"
+
+            # Download image
+            curl -L -o "public$path" "$url"
+
+            echo "Downloaded successfully"
+          done
+
+      - name: Rename images
+        if: github.event.client_payload.dry_run == false
+        run: |
+          echo "=== Renaming images ==="
+
+          # Parse image_changes.toRename
+          images_to_rename='${{ toJson(github.event.client_payload.image_changes.toRename) }}'
+
+          echo "$images_to_rename" | jq -c '.[]' | while read -r item; do
+            from=$(echo "$item" | jq -r '.from')
+            to=$(echo "$item" | jq -r '.to')
+
+            echo "Renaming: public$from -> public$to"
+
+            if [ -f "public$from" ]; then
+              # Create directory if it doesn't exist
+              mkdir -p "public$(dirname "$to")"
+
+              # Rename/move file
+              mv "public$from" "public$to"
+
+              echo "Renamed successfully"
+            else
+              echo "Warning: Source file not found: public$from"
+            fi
+          done
+
+      - name: Delete unused images
+        if: github.event.client_payload.dry_run == false
+        run: |
+          echo "=== Deleting unused images ==="
+
+          # Parse image_changes.toDelete
+          images_to_delete='${{ toJson(github.event.client_payload.image_changes.toDelete) }}'
+
+          echo "$images_to_delete" | jq -r '.[]' | while read -r path; do
+            echo "Deleting: public$path"
+
+            if [ -f "public$path" ]; then
+              rm "public$path"
+              echo "Deleted successfully"
+            else
+              echo "Warning: File not found: public$path"
+            fi
+          done
+
+          # Remove empty directories
+          find public/works -type d -empty -delete || true
+
+      - name: Commit and push changes
+        if: github.event.client_payload.dry_run == false
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add src/data/data.json
+          git add public/works
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update portfolio data and images
+
+            Co-Authored-By: Portfolio Update Tool <noreply@github.com>"
+            git push
+            echo "Changes pushed successfully"
+          fi
+
+      - name: Dry-run summary
+        if: github.event.client_payload.dry_run == true
+        run: |
+          echo "=== DRY RUN MODE ==="
+          echo "No actual changes were made to the repository."
+          echo "Review the diffs above to verify the changes."
+          echo "Set DRY_RUN = false in script.js to apply changes."
