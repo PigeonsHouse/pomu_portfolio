@@ -1,15 +1,49 @@
 {
-  "topImageUrl": "/works/originalArt/work_2.png",
-  "profile": {
-    "name": "ふるぽむ",
-    "icon": "/works/originalArt/work_1.png",
-    "description": "覗いてくれてありがとうございます。\n絵を描いたり、焼き物を作ったりしています。\n心の癒やしになるものを目指して描いてます。\nよろしくお願いいたします。",
-    "properties": {
-      "birthday": "2002/05/08",
-      "hobby": "イラスト、展示を見る",
-      "favorite": "納豆"
-    }
+  "contact": {
+    "instagram": "ai._imaginary",
+    "x": "furu__1"
   },
+  "fanArt": [
+    {
+      "creationTerm": "2022年10月",
+      "description": "弊ワットにお迎えしたくて描いた胡桃。目の模様を書き間違えたからか、未だ胡桃はお迎えできていない…。左手の書き込みを頑張ったので見てほしい。そして可愛い。",
+      "imageUrl": "/works/fanArt/work_1.png",
+      "title": "てへっ"
+    },
+    {
+      "creationTerm": "2022年4月",
+      "description": "アルベドが涙するときは何を見ているだろうと考え描いた作品。服の装飾を描くのが楽しかった。",
+      "imageUrl": "/works/fanArt/work_2.png",
+      "title": "灰は灰に…"
+    },
+    {
+      "creationTerm": "2025年5月",
+      "description": "アイドルになったずんだもんたちを最前席で応援する作品。主は神々しさのあまりペンライトを振るしかできないっ！！！",
+      "imageUrl": "/works/fanArt/work_3.png",
+      "title": "ぼくたちの声を届けるのだ！！！"
+    }
+  ],
+  "originalArt": [
+    {
+      "creationTerm": "2025年11月～12月",
+      "description": "アイコンの子です。眼鏡は正義。もっといろんなメガネを掛けさせていきます。",
+      "imageUrl": "/works/originalArt/work_1.png",
+      "title": "一緒にどう？"
+    },
+    {
+      "creationTerm": "2025年10月～11月",
+      "description": "森に住む動物たちとおしゃべりするのが好きなお姫さまの作品。木の後ろにいるくまに気づいたかな？",
+      "imageUrl": "/works/originalArt/work_2.png",
+      "title": "お姫さまとみんな！"
+    },
+    {
+      "creationTerm": "2025年8月",
+      "description": "抹茶が好きな天使とその使い魔たちのお茶会を描いた作品。美味しそうな抹茶のデザートが沢山あるが、何か怪しい雰囲気が漂っている。",
+      "imageUrl": "/works/originalArt/work_3.png",
+      "title": "抹茶はお好き？"
+    }
+  ],
+  "others": [],
   "pickup": [
     "ぼくたちの声を届けるのだ！！！",
     "一緒にどう？",
@@ -17,57 +51,23 @@
     "灰は灰に…",
     "てへっ"
   ],
-  "originalArt": [
-    {
-      "imageUrl": "/works/originalArt/work_1.png",
-      "title": "一緒にどう？",
-      "description": "アイコンの子です。眼鏡は正義。もっといろんなメガネを掛けさせていきます。",
-      "creationTerm": "2025年11月～12月"
-    },
-    {
-      "imageUrl": "/works/originalArt/work_2.png",
-      "title": "お姫さまとみんな！",
-      "description": "森に住む動物たちとおしゃべりするのが好きなお姫さまの作品。木の後ろにいるくまに気づいたかな？",
-      "creationTerm": "2025年10月～11月"
-    },
-    {
-      "imageUrl": "/works/originalArt/work_3.png",
-      "title": "抹茶はお好き？",
-      "description": "抹茶が好きな天使とその使い魔たちのお茶会を描いた作品。美味しそうな抹茶のデザートが沢山あるが、何か怪しい雰囲気が漂っている。",
-      "creationTerm": "2025年8月"
-    }
-  ],
-  "fanArt": [
-    {
-      "imageUrl": "/works/fanArt/work_1.png",
-      "title": "てへっ",
-      "description": "弊ワットにお迎えしたくて描いた胡桃。目の模様を書き間違えたからか、未だ胡桃はお迎えできていない…。左手の書き込みを頑張ったので見てほしい。そして可愛い。",
-      "creationTerm": "2022年10月"
-    },
-    {
-      "imageUrl": "/works/fanArt/work_2.png",
-      "title": "灰は灰に…",
-      "description": "アルベドが涙するときは何を見ているだろうと考え描いた作品。服の装飾を描くのが楽しかった。",
-      "creationTerm": "2022年4月"
-    },
-    {
-      "imageUrl": "/works/fanArt/work_3.png",
-      "title": "ぼくたちの声を届けるのだ！！！",
-      "description": "アイドルになったずんだもんたちを最前席で応援する作品。主は神々しさのあまりペンライトを振るしかできないっ！！！",
-      "creationTerm": "2025年5月"
-    }
-  ],
   "porcelain": [
     {
-      "imageUrl": "/works/porcelain/work_1.png",
-      "title": "Re：incarnation",
+      "creationTerm": "2024年4月～2025年2月",
       "description": "廃棄陶磁器を粉砕し、陶土に40％混ぜて再び器として使えるようにと再資源化を試みた作品。5種の器は花をモチーフにティータイムを楽しむ際にセットで楽しめるようにと製作した。",
-      "creationTerm": "2024年4月～2025年2月"
+      "imageUrl": "/works/porcelain/work_1.png",
+      "title": "Re：incarnation"
     }
   ],
-  "others": [],
-  "contact": {
-    "instagram": "ai._imaginary",
-    "x": "furu__1"
-  }
+  "profile": {
+    "description": "覗いてくれてありがとうございます。\n絵を描いたり、焼き物を作ったりしています。\n心の癒やしになるものを目指して描いてます。\nよろしくお願いいたします。",
+    "icon": "/works/originalArt/work_1.png",
+    "name": "ふるぽむ",
+    "properties": {
+      "birthday": "2002/05/08",
+      "favorite": "納豆",
+      "hobby": "イラスト、展示を見る"
+    }
+  },
+  "topImageUrl": "/works/originalArt/work_2.png"
 }
