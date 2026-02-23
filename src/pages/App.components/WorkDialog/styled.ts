@@ -24,6 +24,7 @@ export const WorkCard = styled.div`
   width: calc(100% - 40px);
   max-width: calc(${MaxWidth}px - 40px);
   max-height: fit-content;
+  height: -moz-max-content;
   border-radius: 8px;
   margin: auto;
   background-color: ${Color.White};
