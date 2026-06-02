@@ -21,6 +21,24 @@
       "description": "アイドルになったずんだもんたちを最前席で応援する作品。主は神々しさのあまりペンライトを振るしかできないっ！！！",
       "imageUrl": "/works/fanArt/work_3.png",
       "title": "ぼくたちの声を届けるのだ！！！"
+    },
+    {
+      "creationTerm": "2026年4月",
+      "description": "C3ちゃんという九州工業大学のサークル「C3」のキャラクター。一緒にお出かけをしたが何やら騒がしい鳩が！C3ちゃんが何をしたかは内緒だよ？",
+      "imageUrl": "/works/fanArt/work_4.png",
+      "title": "内緒だよ？"
+    },
+    {
+      "creationTerm": "2026年3月",
+      "description": "ポケモンSVにハマったときの作品。金銀から大好きなウィンディと推しのジニア先生が楽しそうにしているところが見たくて。ポカポカした空気感が癒されます。",
+      "imageUrl": "/works/fanArt/work_5.png",
+      "title": "ジニア先生とウィンディ"
+    },
+    {
+      "creationTerm": "2026年5月",
+      "description": "仕事で疲れ切ったあなたをデカオムライスで迎えてくれるペパーの作品。ホッカホカのオムライスにハートは疲れが吹っ飛びますね。",
+      "imageUrl": "/works/fanArt/work_6.png",
+      "title": "デカオムライスで迎えてくれるペパー"
     }
   ],
   "originalArt": [
@@ -53,6 +71,18 @@
       "description": "ロートデジアイのイラコン作品。謎生命体ナゾタコ達とワチャワチャしている様子を描きました。キーボードの白で「ロート」を表しているのはここだけの話だぞ。",
       "imageUrl": "/works/originalArt/work_5.png",
       "title": "瞳、チートモード！"
+    },
+    {
+      "creationTerm": "2026年3月",
+      "description": "クリームソーダのイラコンの作品。クリームソーダに見えづらいところが悔やまれますが、この子の表情はとても気に入っています。グレースケールでの表現はカラーと違っていろんな発見があり、今後も挑戦してみたい。",
+      "imageUrl": "/works/originalArt/work_6.png",
+      "title": "夏はクリームソーダにゃ！！"
+    },
+    {
+      "creationTerm": "2026年3月～4月",
+      "description": "GALLERIAイラコンビターの作品。自信作でしたが落選。液体の動きのある表現が勉強になり、この子がどんな人柄なのか、ストーリー性をより見せられるような構図と背景が課題だと学びました。",
+      "imageUrl": "/works/originalArt/work_7.png",
+      "title": "ビターチョコレートな女の子"
     }
   ],
   "others": [],
@@ -81,5 +111,5 @@
       "hobby": "イラスト、展示を見る"
     }
   },
-  "topImageUrl": "/works/originalArt/work_2.png"
+  "topImageUrl": "https://i.ibb.co/CKbzxyMM/png.png"
 }
